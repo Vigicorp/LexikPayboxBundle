@@ -46,8 +46,8 @@ class BuzzTransport extends AbstractTransport
 
         if ($response->isSuccessful()) {
             return $response->getContent();
-        } else {
-            return false;
         }
+
+        return false;
     }
 }

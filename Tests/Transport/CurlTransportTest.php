@@ -5,11 +5,12 @@ namespace Lexik\Bundle\PayboxBundle\Tests\Transport;
 use Lexik\Bundle\PayboxBundle\Paybox\RequestInterface;
 use Lexik\Bundle\PayboxBundle\Paybox\System\Cancellation\Request;
 use Lexik\Bundle\PayboxBundle\Transport\CurlTransport;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Test class for CurlTransport
  */
-class CurlTransportTest extends \PHPUnit_Framework_TestCase
+class CurlTransportTest extends TestCase
 {
     protected $object;
 
@@ -17,7 +18,7 @@ class CurlTransportTest extends \PHPUnit_Framework_TestCase
 
     protected $server;
 
-    public function setUp()
+    public function setUp(): void
     {
         if (!function_exists('curl_init')) {
             $this->markTestSkipped('cURL is not available. Activate it first.');
