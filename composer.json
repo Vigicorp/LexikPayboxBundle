@@ -1,5 +1,5 @@
 {
-    "name": "vgimonnet/paybox-bundle",
+    "name": "vigicorp/paybox-bundle",
     "type": "symfony-bundle",
     "description": "Fork of LexikPayboxBundle to be use Symfony 5",
     "keywords": ["Symfony5", "bundle", "Paybox", "Payment"],
@@ -9,6 +9,7 @@
         { "name": "Lexik", "email": "dev@lexik.fr" },
         { "name": "Olivier Maisonneuve", "email": "o.maisonneuve@lexik.fr" },
         { "name": "vgimonnet", "email": "valentin.gimonnet18@gmail.com" }
+        { "name": "PastisD", "email": "PastisD@gmail.com" }
     ],
     "require": {
         "php": ">=5.5.9",
