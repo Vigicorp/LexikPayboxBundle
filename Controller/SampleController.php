@@ -2,7 +2,7 @@
 
 namespace Lexik\Bundle\PayboxBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Generator\UrlGenerator;
@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Generator\UrlGenerator;
  * @author Lexik <dev@lexik.fr>
  * @author Olivier Maisonneuve <o.maisonneuve@lexik.fr>
  */
-class SampleController extends Controller
+class SampleController extends AbstractController
 {
     /**
      * Index action creates the form for a payment call.
@@ -41,7 +41,7 @@ class SampleController extends Controller
         ));
 
         return $this->render(
-            'LexikPayboxBundle:Sample:index.html.twig',
+            '@LexikPaybox/Sample/index.html.twig',
             array(
                 'url'  => $paybox->getUrl(),
                 'form' => $paybox->getForm()->createView(),
@@ -61,7 +61,7 @@ class SampleController extends Controller
      */
     public function returnAction(Request $request, $status)
     {
-        return $this->render('LexikPayboxBundle:Sample:return.html.twig', array(
+        return $this->render('@LexikPaybox/Sample/return.html.twig', array(
             'status'     => $status,
             'parameters' => $request->query,
         ));
