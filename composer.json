@@ -8,7 +8,7 @@
     "authors": [
         { "name": "Lexik", "email": "dev@lexik.fr" },
         { "name": "Olivier Maisonneuve", "email": "o.maisonneuve@lexik.fr" },
-        { "name": "vgimonnet", "email": "valentin.gimonnet18@gmail.com" }
+        { "name": "vgimonnet", "email": "valentin.gimonnet18@gmail.com" },
         { "name": "PastisD", "email": "PastisD@gmail.com" }
     ],
     "require": {
