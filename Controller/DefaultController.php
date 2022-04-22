@@ -21,7 +21,7 @@ class DefaultController extends AbstractController
      *
      * @return Response
      */
-    public function ipnAction(\Lexik\Bundle\PayboxBundle\Paybox\System\Base\Response $payboxResponse)
+    public function ipn(\Lexik\Bundle\PayboxBundle\Paybox\System\Base\Response $payboxResponse)
     {
         $result = $payboxResponse->verifySignature();
 

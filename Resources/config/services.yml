@@ -2,12 +2,26 @@ parameters:
     lexik_paybox.request_handler.class:              'Lexik\Bundle\PayboxBundle\Paybox\System\Base\Request'
     lexik_paybox.request_cancellation_handler.class: 'Lexik\Bundle\PayboxBundle\Paybox\System\Cancellation\Request'
     lexik_paybox.response_handler.class:             'Lexik\Bundle\PayboxBundle\Paybox\System\Base\Response'
-    lexik_paybox.direct_plus.request_handler:         'Lexik\Bundle\PayboxBundle\Paybox\DirectPlus\Request'
+    lexik_paybox.direct_plus.request_handler:        'Lexik\Bundle\PayboxBundle\Paybox\DirectPlus\Request'
+    lexik_paybox.controller.default:                 'Lexik\Bundle\PayboxBundle\Controller\DefaultController'
+    lexik_paybox.controller.sample:                  'Lexik\Bundle\PayboxBundle\Controller\SampleController'
 
 services:
     _defaults:
         autowire: true
         autoconfigure: true
+
+    lexik_paybox.controller.sample:
+        class: '%lexik_paybox.controller.sample%'
+        calls:
+            - setContainer: ['@service_container']
+        tags: ['controller.service_arguments']
+
+    lexik_paybox.controller.default:
+        class: '%lexik_paybox.controller.default%'
+        calls:
+            - setContainer: ['@service_container']
+        tags: ['controller.service_arguments']
 
     lexik_paybox.request_handler:
         class:     '%lexik_paybox.request_handler.class%'

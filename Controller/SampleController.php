@@ -22,7 +22,7 @@ class SampleController extends AbstractController
      *
      * @return Response
      */
-    public function indexAction()
+    public function index()
     {
         $paybox = $this->get('lexik_paybox.request_handler');
         $paybox->setParameters(array(
@@ -59,7 +59,7 @@ class SampleController extends AbstractController
      *
      * @return Response
      */
-    public function returnAction(Request $request, $status)
+    public function return(Request $request, $status)
     {
         return $this->render('@LexikPaybox/Sample/return.html.twig', array(
             'status'     => $status,
