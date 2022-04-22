@@ -1,5 +1,5 @@
 lexik_paybox_ipn:
     path:     /payment-ipn/{time}
     defaults:
-        _controller: "lexik_paybox.controller.default::ipn"
+        _controller: "Lexik\\Bundle\\PayboxBundle\\Controller\\DefaultController::ipn"
     methods:  [GET, POST]

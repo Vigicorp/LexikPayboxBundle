@@ -2,6 +2,8 @@
 
 namespace Lexik\Bundle\PayboxBundle\Controller;
 
+use Lexik\Bundle\PayboxBundle\Paybox\System\Base\Request as PayboxRequest;
+use Lexik\Bundle\PayboxBundle\Paybox\System\Base\Response as PayboxResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -12,8 +14,8 @@ use Symfony\Component\Routing\Generator\UrlGenerator;
  *
  * @package Lexik\Bundle\PayboxBundle\Controller
  *
- * @author Lexik <dev@lexik.fr>
- * @author Olivier Maisonneuve <o.maisonneuve@lexik.fr>
+ * @author  Lexik <dev@lexik.fr>
+ * @author  Olivier Maisonneuve <o.maisonneuve@lexik.fr>
  */
 class SampleController extends AbstractController
 {
@@ -22,11 +24,10 @@ class SampleController extends AbstractController
      *
      * @return Response
      */
-    public function index()
+    public function index(PayboxRequest $payboxRequest)
     {
-        $paybox = $this->get('lexik_paybox.request_handler');
-        $paybox->setParameters(array(
-            'PBX_CMD'          => 'CMD'.time(),
+        $payboxRequest->setParameters(array(
+            'PBX_CMD'          => 'CMD' . time(),
             'PBX_DEVISE'       => '978',
             'PBX_PORTEUR'      => 'test@paybox.com',
             'PBX_RETOUR'       => 'Mt:M;Ref:R;Auto:A;Erreur:E',
@@ -43,8 +44,8 @@ class SampleController extends AbstractController
         return $this->render(
             '@LexikPaybox/Sample/index.html.twig',
             array(
-                'url'  => $paybox->getUrl(),
-                'form' => $paybox->getForm()->createView(),
+                'url'  => $payboxRequest->getUrl(),
+                'form' => $payboxRequest->getForm()->createView(),
             )
         );
     }
